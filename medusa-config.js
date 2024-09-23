@@ -1,5 +1,7 @@
 const dotenv = require("dotenv");
 
+console.log(`running in environment: ${ process.env.NODE_ENV }`);
+
 let ENV_FILE_NAME = "";
 switch (process.env.NODE_ENV) {
   case "production":
@@ -77,7 +79,13 @@ const projectConfig = {
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
   // Uncomment the following lines to enable REDIS
-  redis_url: REDIS_URL
+  redis_url: REDIS_URL,
+  database_extra: process.env.NODE_ENV !== "development" ?
+  {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  } : {},
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
