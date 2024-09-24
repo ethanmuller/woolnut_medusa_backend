@@ -42,6 +42,7 @@ const plugins = [
     resolve: `@medusajs/file-local`,
     options: {
       upload_dir: "uploads",
+      backend_url: process.env.BACKEND_URL,
     },
   },
   {
@@ -86,7 +87,6 @@ const projectConfig = {
   admin_cors: ADMIN_CORS,
   // Uncomment the following lines to enable REDIS
   redis_url: REDIS_URL,
-  backend_url: "https://woolnut.mush.network",
   database_extra: process.env.NODE_ENV !== "development" ?
   {
     ssl: {
