@@ -42,7 +42,7 @@ const plugins = [
     resolve: `@medusajs/file-local`,
     options: {
       upload_dir: "uploads",
-      backend_url: process.env.BACKEND_URL,
+      backend_url: 'https://woolnut-cdn.mush.network',
     },
   },
   {
